@@ -34,7 +34,7 @@ export const UserInfo = styled.div`
         font-weight: 700;
         font-size: 18px;
         line-height: 25px;
-        color> #FFFFFF;
+        color: #FFFFFF;
     }
     
     p {
@@ -43,7 +43,7 @@ export const UserInfo = styled.div`
         font-weight: 400;
         font-size: 12px;
         line-height: 16px;
-        color> #FFFFFF;
+        color: #FFFFFF;
     }
 `
 
@@ -63,7 +63,7 @@ export const PostInfo = styled.div`
         font-weight: 700;
         font-size: 18px;
         line-height: 25px;
-        color> #FFFFFF;
+        color: #FFFFFF;
     }
 
     p {

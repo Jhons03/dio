@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-import { MdEmail, MdLock } from 'react-icons/md'
+import { MdEmail, MdLock, MdPerson } from 'react-icons/md'
 import { Header } from "../../components/Header";
 import { Button } from "../../components/Button";
 import { Input } from "../../components/Input";
@@ -10,15 +10,16 @@ import * as yup from "yup";
 import { api } from '../../services/api';
 
 
-import { Container, Title, Column, Row, CriarText, EsqueciText, SubTitleLogin, TitleLogin, Wrapper } from './styles';
+import { Container, Title, Column, CriarText, SubTitleLogin, TitleLogin, Wrapper } from './styles';
 
 const schema = yup.object({
+  nome: yup.string().required('Campo obrigatório'),
   email: yup.string().email('email não é válido').required('Campo obrigatório'),
   password: yup.string().min(3, 'No minimo 3 caracteres').required('Campo obrigatório'),
 }).required();
 
 
-const Login = () => {
+const Cadastro = () => {
 
     const navigate = useNavigate();
 
@@ -28,14 +29,7 @@ const Login = () => {
     });
 
     const onSubmit = async formData => {
-        try {
-            const { data } = await api.get(`users?email=${formData.email}&senha=${formData.password}`);
-            if(data.length === 1){
-                navigate('/feed')
-            }
-        } catch {
-            alert('Houve um erro, tente novamente')
-        }
+        navigate('/login')
     };
 
     return(<>
@@ -49,21 +43,20 @@ const Login = () => {
         </Column>
         <Column>
             <Wrapper>
-                <TitleLogin>Entrar</TitleLogin>
-                <SubTitleLogin>Faça seu Login e make the change.</SubTitleLogin>
+                <TitleLogin>Comece agora grátis</TitleLogin>
+                <SubTitleLogin>Crie sua conta e make the change.</SubTitleLogin>
                 <form onSubmit={handleSubmit(onSubmit)}>
+                    <Input name="nome"  errorMessage={errors?.nome?.message} control={control} placeholder="Nome completo" leftIcon={<MdPerson />} />
                     <Input name="email" errorMessage={errors?.email?.message} control={control} placeholder="E-mail" leftIcon={<MdEmail />} />
                     <Input name="password" errorMessage={errors?.password?.message} control={control} placeholder="Senha" type="password" leftIcon={<MdLock />}/>
-                    <Button title="Entrar" variant="secondary" type="submit"/>
+                    <Button title="Criar minha conta" variant="secondary" type="submit"/>
                 </form>
-                <Row>
-                    <EsqueciText>Esqueci minha senha</EsqueciText>
-                    <CriarText>Criar Conta</CriarText>
-                </Row>
+                <SubTitleLogin>Ao clicar em "criar minha conta", declaro que aceito as Políticas de Privacidade e os Termos de Uso da DIO.</SubTitleLogin>
+                <CriarText>Já tenho conta. <span>Fazer login</span></CriarText>
             </Wrapper>
         </Column>
     </Container>
     </>)
 }
 
-export { Login };
+export { Cadastro };

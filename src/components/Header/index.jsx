@@ -13,6 +13,7 @@ import {
 } from './styles'
 import { Button } from '../Button';
 import logo from '../../assets/logo-dio.png';
+import { Link } from 'react-router-dom';
 
 const Header = ({ autenticado }) => {
   return (
@@ -28,7 +29,6 @@ const Header = ({ autenticado }) => {
                     <Menu>Global</Menu>   
                     </>
                 ) : null}
-              
             </Row>
             <Row>
                 {autenticado ? (
@@ -38,7 +38,7 @@ const Header = ({ autenticado }) => {
                     
                 ) : (
                     <>
-                    <MenuRight href= "#">Home</MenuRight>
+                    <MenuRight href= "/">Home</MenuRight>
                     <Button title="Entrar"/>
                     <Button title="Cadastrar"/>
                     </>
