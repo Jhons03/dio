@@ -1,6 +1,21 @@
 {
-    "users":[
-        {"id": 1, "name": "Edson", "email": "edin2008@yahoo.com.br", "senha": "123456"},
-        {"id": 2, "name": "Shirley", "email": "shirley.sop@hotmail.com", "senha": "123456"}
-    ]
+  "users": [
+    {
+      "id": "1",
+      "name": "Edson",
+      "email": "edin2008@yahoo.com.br",
+      "senha": "123456"
+    },
+    {
+      "id": "2",
+      "name": "Shirley",
+      "email": "shirley.sop@hotmail.com",
+      "senha": "123456"
+    },
+    {
+      "id": "adf2",
+      "email": "edson@gmail.com",
+      "password": "12345"
+    }
+  ]
 }

@@ -14,8 +14,9 @@ import {
 import { Button } from '../Button';
 import logo from '../../assets/logo-dio.png';
 import { Link } from 'react-router-dom';
+import { IHeader } from './types';
 
-const Header = ({ autenticado }) => {
+const Header = ({ autenticado }: IHeader) => {
   return (
     <Wrapper>
         <Container>
